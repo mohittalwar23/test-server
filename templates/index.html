@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Message Display</title>
+    <script>
+        async function fetchMessage() {
+            const response = await fetch('/message');
+            const data = await response.json();
+            document.getElementById('message').innerText = data.message;
+        }
+
+        setInterval(fetchMessage, 1000);
+    </script>
+</head>
+<body onload="fetchMessage()">
+    <h1>Received Message:</h1>
+    <p id="message">No message yet</p>
+</body>
+</html>
